@@ -4,6 +4,7 @@ import { Post, User } from "./models";
 import { connectToDb } from "./utils";
 import { signIn, signOut } from "./auth";
 import bcrypt from "bcryptjs";
+import { Error } from "mongoose";
 
 export const addPost = async (formData) => {
   // const title = formData.get("title");
@@ -55,7 +56,7 @@ export const handleLogout = async () => {
 };
 
 
-export const register = async (formData) => {
+export const register = async (previousState, formData) => {
 
   const { username, email, password, img, passwordRepeat } =
     Object.fromEntries(formData);
@@ -85,7 +86,8 @@ export const register = async (formData) => {
     await newUser.save();
     console.log("saved to db");
 
-    /* return { success: true }; */
+    return { success: true };
+
   } catch (err) {
     console.log(err);
     return { error: "Something went wrong!" };
@@ -93,15 +95,15 @@ export const register = async (formData) => {
 };
 
 
-export const login = async (formData) => {
-
-  const { username, password } =
-    Object.fromEntries(formData);
+export const login = async (prevState, formData) => {
+  const { username, password } = Object.fromEntries(formData);
 
   try {
     await signIn("credentials", { username, password });
   } catch (err) {
-    console.log(err);
-    return { error: "Something went wrong!" };
+    if (err.type ==="CredentialsSignin") {
+      return { error: "Invalid username or password" };
+    }
+    throw err;
   }
 };
