@@ -1,6 +1,6 @@
 import styles from "./footer.module.css";
 
-export default function Footer() {
+const Footer = () => {
   return (
     <div className={styles.container}>
       <div className={styles.logo}>lamadev</div>
@@ -9,4 +9,6 @@ export default function Footer() {
       </div>
     </div>
   );
-}
+};
+
+export default Footer;

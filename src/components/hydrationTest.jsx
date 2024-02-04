@@ -1,7 +1,14 @@
-"use client";
+"use client"
 
-export default function hydrationTest() {
+const HydrationTest = () => {
+
   const a = Math.random();
+  
   console.log(a);
-  return <div>{a}</div>;
+
+  return (
+    <div>{a}</div>
+  )
 }
+
+export default HydrationTest

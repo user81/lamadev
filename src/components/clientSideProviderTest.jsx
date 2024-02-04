@@ -1,6 +1,11 @@
 "use client"
-export default function clientSideProviderTest({children}) {
+
+const ClientSideProviderTest = ({children}) => {
   return (
-    <div>{children}</div>
+    <div>
+      {children}
+    </div>
   )
 }
+
+export default ClientSideProviderTest

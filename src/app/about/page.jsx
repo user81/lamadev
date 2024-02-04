@@ -2,12 +2,14 @@ import Image from "next/image";
 import styles from "./about.module.css";
 
 export const metadata = {
-  title: 'About Next App',
-  description: 'About description',
-}
+  title: "About Page",
+  description: "About description",
+};
 
-export default function AboutPage() {
-  /* console.log(123); */
+
+const AboutPage = () => {
+
+  // console.log("lets check where it works")
   return (
     <div className={styles.container}>
       <div className={styles.textContainer}>
@@ -46,4 +48,6 @@ export default function AboutPage() {
       </div>
     </div>
   );
-}
+};
+
+export default AboutPage;

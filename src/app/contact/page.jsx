@@ -1,23 +1,20 @@
-"use client"
-
+// "use client";
 import Image from "next/image";
 import styles from "./contact.module.css";
-/* import dynamic from "next/dynamic";
-import { useEffect, useState } from "react"; */
+// import dynamic from "next/dynamic";
+// import HydrationTest from "@/components/hydrationTest";
 
-/* const HydrationTestNoSSR = dynamic(()=>import("@/components/hydrationTest.jsx"), {ssr: false});
- */
-/* const [isClient, setIsClient] = useState(false);
-useEffect(() => setIsClient(true), []);
-const a = Math.random();
-console.log(a); */
+// const HydrationTestNoSSR = dynamic(()=>import("@/components/hydrationTest"), {ssr: false})
 
 export const metadata = {
   title: "Contact Page",
   description: "Contact description",
 };
 
-export default function ContactPage() {
+const ContactPage = () => {
+  // const a = Math.random();
+
+  // console.log(a);
 
   return (
     <div className={styles.container}>
@@ -25,8 +22,7 @@ export default function ContactPage() {
         <Image src="/contact.png" alt="" fill className={styles.img} />
       </div>
       <div className={styles.formContainer}>
-      {/* {console.log(isClient && a)} */}
-        {/* { <HydrationTestNoSSR/> } */}
+        {/* <HydrationTestNoSSR/> */}
         {/* <div suppressHydrationWarning>{a}</div> */}
         <form action="" className={styles.form}>
           <input type="text" placeholder="Name and Surname" />
@@ -44,4 +40,6 @@ export default function ContactPage() {
       </div>
     </div>
   );
-}
+};
+
+export default ContactPage;
